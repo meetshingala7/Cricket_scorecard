@@ -235,8 +235,10 @@ void name_team2()
     while(count<11)
     {
         /*
+        --------
         The below if statement is for the first entry only
         rest of them will execute in else block
+        --------
         */
         if(count==0)
         {
@@ -275,11 +277,13 @@ void name_team2()
 void def_name_team2()
 {
     /*
+    --------
     This works for our example code only
     For team1 only
     Input: The function Does not take any input
     Output: It initiates the node for 11 players that will be playing on the field
             In the beginning all the stats are initialized to 0 
+    --------
     */
     struct node *p;
     int count=0;
@@ -287,8 +291,10 @@ void def_name_team2()
     while(count<11)
     {
         /*
+        --------
         The below if statement is for the first entry only
         rest of them will execute in else block
+        --------
         */
         if(count==0)
         {
@@ -331,12 +337,14 @@ void def_name_team2()
 int check_for_end(int num)
 {
     /*
+    --------
     Input: Team that is batting
     Output: True(1) or False(0)
     This checks if the innings has ended or not hence the criterias for an innings to get over is:
     1. All 10 wickets fall
     2. All The overs are bowled 
     and the function returns 1 if innings end
+    --------
     */
     if(wicket[num]==10 || total_balls[num]/6==total_over)
         return 1;
@@ -349,8 +357,10 @@ int check_for_end(int num)
 void assign_default_batsman(int num)
 {
     /*
+    --------
     Input: Team that is going to bat first
     Output: Connect the openers 
+    --------
     */
     if(num==1)
     {
@@ -393,6 +403,7 @@ int search_for_bowler()// searches for bowler for new over
 void bat_score(int reg)
 {
     /*
+    --------
     Input: the runs scored by the batter
     This function will register how many runs the batter scored and accordingly update the stats
     2 cases:
@@ -407,6 +418,7 @@ void bat_score(int reg)
             Simply add the runs and 1 ball played.
     2. Runs are 7 or greater or less than 0
         Which is an invalid input
+    --------
     */
     if(reg<=7 && reg>=0)
     {
@@ -435,7 +447,9 @@ void bat_score(int reg)
 void strikechange()
 {   
     /*
+    --------
     This will basically rotate the strike by exchanging the pointers at strike i.e. bat1 and bat2
+    --------
     */
     struct node *temp=(struct node *)malloc(sizeof(struct node));
     temp=bat1;
@@ -446,6 +460,7 @@ void strikechange()
 void ball_score(int reg,int choice,int index)
 {
     /*
+    --------
     reg for run input
     Choice for byes or wickets or no balls or wides\
     1. Byes
@@ -456,6 +471,7 @@ void ball_score(int reg,int choice,int index)
     
     //if: for team 1 
     //else: for team 2
+    --------
     */
     int wkts,strchange;//for wickets
     if(current_bat_team==0)
@@ -463,9 +479,11 @@ void ball_score(int reg,int choice,int index)
         if(choice==1)//byes
         {
             /*
+            --------
             Runs are added to the team
             Balls are added since it is a valid bowl
             Extras are added. If the runs scored are odd, Strike is changed
+            --------
             */
             runs2[index]+=reg;
             balls2[index]++;
@@ -476,7 +494,9 @@ void ball_score(int reg,int choice,int index)
         else if(choice==2)//wickets
         {
             /*
+            --------
             Wickets are added after the scorer adds which batsman got out so we can get the new batsman into bat3
+            --------
             */
             printf("Which Batsman got out? 1. Strike or 2.Non-Strike - ");
             scanf("%d",&wkts);
@@ -489,6 +509,7 @@ void ball_score(int reg,int choice,int index)
             if (wkts == 1)
             {   
                 /*
+                --------
                 If the Batter on strike gets out:
                 1. If: The strike is rotated:
                     Non-Striker takes the strike
@@ -497,6 +518,7 @@ void ball_score(int reg,int choice,int index)
                     Non-Strikers stays at Non-Strike
                     New-Batter Takes the striker position
                 3. Else Enter correct input
+                --------
                 */
                 if (strchange == 1)
                 {
@@ -515,6 +537,7 @@ void ball_score(int reg,int choice,int index)
             else if (wkts == 2)
             {
                 /*
+                --------
                 If the Batter on non-strike gets out:
                 1. If: The strike is rotated:
                     New-Batter takes the strike
@@ -522,6 +545,7 @@ void ball_score(int reg,int choice,int index)
                 2. Else if: The strike is not rotated
                     Batter on Strike stays on the striker position
                     New-Batter Takes at Non-Strike
+                --------
                 */
                 if (strchange == 1)
                 {
@@ -559,9 +583,11 @@ void ball_score(int reg,int choice,int index)
         if(choice==1)//byes
         {
             /*
+            --------
             Runs are added to the team
             Balls are added since it is a valid bowl
             Extras are added. If the runs scored are odd, Strike is changed
+            --------
             */
             runs1[index]+=reg;
             balls1[index]++;
@@ -572,7 +598,9 @@ void ball_score(int reg,int choice,int index)
         else if(choice==2)//wickets
         {
             /*
+            --------
             Wickets are added after the scorer adds which batsman got out so we can get the new batsman into bat3
+            --------
             */
             printf("Which Batsman got out? 1. Strike or 2.Non-Strike - ");
             scanf("%d",&wkts);
@@ -585,6 +613,7 @@ void ball_score(int reg,int choice,int index)
             if (wkts == 1)
             {
                 /*
+                --------
                 If the Batter on strike gets out:
                 1. If: The strike is rotated:
                     Non-Striker takes the strike
@@ -593,6 +622,7 @@ void ball_score(int reg,int choice,int index)
                     Non-Strikers stays at Non-Strike
                     New-Batter Takes the striker position
                 3. Else Enter correct input
+                --------
                 */
                 if (strchange == 1)
                 {
@@ -611,6 +641,7 @@ void ball_score(int reg,int choice,int index)
             else if (wkts == 2)
             {
                 /*
+                --------
                 If the Batter on non-strike gets out:
                 1. If: The strike is rotated:
                     New-Batter takes the strike
@@ -618,6 +649,7 @@ void ball_score(int reg,int choice,int index)
                 2. Else if: The strike is not rotated
                     Batter on Strike stays on the striker position
                     New-Batter Takes at Non-Strike
+                --------
                 */
                 if (strchange == 1)
                 {
@@ -690,10 +722,12 @@ void display_timeline()
 void create_timeline(int choice,int reg)
 {
     /*
+    --------
     It is to create timeline for
     1. Adding runs
     2. Wickets fallen
     3. Wides or No-balls
+    --------
     */
     struct node2 *p=(struct node2 *)malloc(sizeof(struct node2));
     if(choice==1)//adding runs
@@ -759,6 +793,7 @@ void event()
     do
     {
         /*
+        --------
         This is like the menu function where an event is registered and the scorer can add the event
         1. Runs
             Balls added
@@ -801,6 +836,9 @@ void event()
         7. End-of-Over
             Strike is changed
             ScoreCard is Displayed
+        8. Innings has ended
+        9. Back to mainmenu
+        --------
         */
         printf("Enter the event occuring:\n1. Run off Bat 2. Leg-Bye 3. No Ball 4. Wide 5. Byes 6. Wicket 7.End of over 8. End of Innings 9.Go to mainmenu\n");
         scanf("%d", &ch);
@@ -904,6 +942,20 @@ void event()
 
 int toss(char team1[20], char team2[20])
 {
+    /*
+    --------
+    Input: the name of 2 teams to print the result
+    Output: Result of the Toss and Assign Batters
+    The toss function works in the following way:
+    1. Takes the output of the tossing of the coin
+        1. Heads
+        2. Tails
+    2. Enter the team that won the toss
+        1. Team 1
+        2. Team 2
+    3. Whether the team chose to bowl first or field first
+    --------
+    */
     char ch;
     int headtail;
     int correctin=1,tosschoice,tosslost;
@@ -966,8 +1018,10 @@ int toss(char team1[20], char team2[20])
 int sum(int arr[])//total number of extras
 {
     /*
+    --------
     Input: Array of extras for 11 players
     Gives the total number of extras to be displayed
+    --------
     */
     int extra = 0;
     for(int i=0;i<11;i++)
@@ -977,11 +1031,14 @@ int sum(int arr[])//total number of extras
 
 void display_scorecard()
 {
-    // // refer dream11 scorecard( for more details)
-    // eg                       IND vs PAK in line 1 at center
-    // total score of t1/wicket(total overs)               total score of t2/wicket(total overs)
-    // t1/t2 won by x runs / y wickets
-
+    /*
+    --------
+    refer dream11 scorecard( for more details)
+    eg                       IND vs PAK in line 1 at center
+    total score of t1/wicket(total overs)               total score of t2/wicket(total overs)
+    t1/t2 won by x runs / y wickets
+    --------
+    */
     printf("--------------------------------------------------------------------------------------");
     printf("\nInning 1 ScoreCard \t\t\t"); // stats of team who did bat first
     // printf("IND  49/4(5.0)");
@@ -1123,6 +1180,7 @@ void main_menu()
     while(a!=0)
     {
         /*
+        --------
         Menu has the following options:
         1. Add an event (Used by the scorer most of the times)
         2. Enter details for next innings
@@ -1130,6 +1188,7 @@ void main_menu()
         4. Display the timeline
         5. Display the result
         0. exit
+        --------
         */
         printf("Menu:\n1. Add to timeline(event)\n2. Enter details for next innings\n3. Display scorecard\n4. Display Timeline\n5. Display result\n0. Exit\n");
         scanf("%d",&a);
