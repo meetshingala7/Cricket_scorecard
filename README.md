@@ -38,7 +38,7 @@ or they can add all the names themselves. Once this is done, we move on to the t
 - Exit (if the game is over)
 <br><br><br>
 
-1. Timeline events is entered through the events() function:
+-  Timeline events is entered through the events() function:
 The events functions covers all the possible events that may occur on a ball and is mentioned as follows:
 1. Runs from the bats.
 2. Leg-byes of the pads or body.
@@ -50,10 +50,10 @@ The events functions covers all the possible events that may occur on a ball and
 8. End-of-innings
 9. Option to go back to main-menu
 
-2. The new Innings will be first checked by our code and only then the 2nd innings will begin.
+- The new Innings will be first checked by our code and only then the 2nd innings will begin.
 
-3. The scorecard can be displayed at any time the presenter wants to.
+-  The scorecard can be displayed at any time the presenter wants to.
 
-4. Shows the last few balls that were bowled
+-  Shows the last few balls that were bowled
 
-5. The code will first check whether the game has ended and a result can be declared and then it will show the final result.
+- The code will first check whether the game has ended and a result can be declared and then it will show the final result.
